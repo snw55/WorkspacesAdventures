@@ -7,6 +7,8 @@ MAP_DATA = {
         {"name": "Drone Dock", "coordinates": (40.7140, -74.0030)},
         {"name": "Anti-Gravity Bike Store", "coordinates": (40.7110, -74.0070)},
         {"name": "Robot Cafe", "coordinates": (40.7160, -74.0010)},
+        {"name": "Codetropolis Museum", "coordinates": (40.7148, -74.0059)},
+        {"name": "The Tower", "coordinates": (40.7158, -74.0069)}
     ]
 }
 
