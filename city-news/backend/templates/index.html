@@ -9,6 +9,16 @@
 <body>
     <h1>Codetropolis Newsfeed</h1>
     <div id="news-container"></div>
+    <div id="pagination-controls" style="text-align: center;">
+        <button id="previous-button" style="display: none;">Previous</button>
+        <select id="per-page-select">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+        </select>
+        <button id="next-button" style="display: none;">Next</button>
+    </div>
     <script src="{{ url_for('static', filename='news.js') }}"></script> <!-- Use Flask's static helper -->
 </body>
 </html>

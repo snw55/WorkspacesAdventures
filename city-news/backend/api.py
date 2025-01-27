@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 from newsfeed import fetch_news, format_news
 
@@ -14,8 +14,13 @@ def get_news():
     Serve the latest news stories to the frontend.
     """
     try:
+        page = int(request.args.get("page", 1))
+        per_page = int(request.args.get("per_page", 5))
         news = fetch_news()
-        formatted = format_news(news)
+        start = (page - 1) * per_page
+        end = start + per_page
+        paginated_news = news[start:end]
+        formatted = format_news(paginated_news)
         return jsonify(formatted)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
