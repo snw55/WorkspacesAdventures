@@ -7,6 +7,9 @@ MAP_DATA = {
         {"name": "Drone Dock", "coordinates": (40.7140, -74.0030)},
         {"name": "Anti-Gravity Bike Store", "coordinates": (40.7110, -74.0070)},
         {"name": "Robot Cafe", "coordinates": (40.7160, -74.0010)},
+        {"name": "Atlantis", "coordinates": (31.0000, -24.0000)},
+        {"name": "Poseidon's Palace", "coordinates": (32.0000, -25.0000)},
+        {"name": "Neptune's Garden", "coordinates": (33.0000, -26.0000)},
     ]
 }
 
@@ -14,6 +17,10 @@ def get_location(name):
     """
     Retrieve the coordinates of a location by name.
     """
+    if name.lower() == "atlantis":
+        import random
+        return random.choice(MAP_DATA["locations"][7:])["coordinates"]
+    
     for location in MAP_DATA["locations"]:
         if location["name"].lower() == name.lower():
             return location["coordinates"]
