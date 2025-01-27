@@ -1,3 +1,5 @@
+from geopy.distance import geodesic
+
 MAP_DATA = {
     "locations": [
         {"name": "City Hall", "coordinates": (40.7128, -74.0060)},
@@ -35,8 +37,8 @@ def plan_route(start, end):
     if not start_coords or not end_coords:
         raise ValueError(f"One or both locations not found: {start}, {end}")
     
-    # TODO: Calculate distance between coordinates (use Haversine formula)
-    return f"Route planned from {start} to {end}. Distance calculation coming soon!"
+    distance = geodesic(start_coords, end_coords).kilometers
+    return f"Route planned from {start} to {end}. Distance: {distance:.2f} km"
 
 if __name__ == "__main__":
     print("Available locations:")
