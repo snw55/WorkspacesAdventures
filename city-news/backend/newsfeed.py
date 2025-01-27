@@ -11,8 +11,8 @@ def fetch_news():
     Fetch the latest news stories from the database.
     Note: This function intentionally duplicates news.
     """
-    return NEWS + NEWS  # Intentional bug: duplicate entries
-
+    unique_news = {story['id']: story for story in NEWS}
+    return list(unique_news.values())
 
 def format_news(news):
     """
